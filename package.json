@@ -1,0 +1,31 @@
+{
+  "name": "zQuire",
+  "version": "0.3.8",
+  "description": "Enables modules requirement and their runtime installation if not found. Modules are returned through a callbacks or promises.",
+  "keywords": [
+    "require",
+    "npm",
+    "install",
+    "runtime",
+    "callback",
+    "promise"
+  ],
+  "dependencies": {
+    "debug": "^2.2.0",
+    "es6-promise": "^2.3.0",
+    "npm": "^2.12.1"
+  },
+  "devDependencies": {
+    "lodash": "^3.10.0",
+    "chai": "^2.3.0",
+    "gulp": "^3.8.11",
+    "gulp-eslint": "^0.12.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.1.0",
+    "istanbul": "^0.3.14",
+    "node-uuid": "^1.4.3",
+    "require-dir": "^0.3.0"
+  },
+  "license": "MIT",
+  "author": "Nicolas Vargas"
+}
