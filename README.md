@@ -7,7 +7,7 @@ Node module that enables modules requirement and their runtime installation if n
 ## Installation
 
 ## Running
-```Bash
+```
 npm install --save zQuire
 ```
 
@@ -59,6 +59,30 @@ zQuire('express')
  .catch(function(err) {
     throw err;
  });
+```
+
+### Command-line config params
+
+You can add npm CLI config params to ```zQuire```. For example to save the module you require in your ```package.json``` file if it needs to be installed.
+
+More info about [npm config params](https://docs.npmjs.com/misc/config)
+```javascript
+var conf = {
+  save: true
+};
+
+//Callback's style
+zQuire('async', conf,  function(err, async) {
+    if (!err) {
+        //use async here
+    }
+});
+
+//Promise's style
+zQuire('async', conf)
+.then(function(async) {
+    //use async here
+});
 ```
 
 ## Development
