@@ -1,0 +1,6 @@
+reporting:
+  watermarks:
+    branches: [70, 90]
+    functions: [70, 90]
+    lines: [80, 90]
+    statements: [70, 90]
