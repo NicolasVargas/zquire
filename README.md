@@ -1,6 +1,9 @@
 # zquire
 ## Description
-Node module that enables modules requirement and their runtime installation if not found. Modules are returned through a callback or a promise.
+Node module for modules requirement.
+
+Automatically tries to install the missing modules.
+Returns the modules under a callback or a promise.
 
 ## Installation
 ## Running
