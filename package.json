@@ -13,8 +13,8 @@
   "dependencies": {
     "debug": "^2.2.0",
     "es6-promise": "^2.3.0",
-    "introspect-fun": "^1.0.0",
-    "npm": "^2.12.1"
+    "introspect-fun": "^1.0.4",
+    "npm": "^2.13.2"
   },
   "scripts": {
     "lint": "eslint --ext .js ./lib ./test",
