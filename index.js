@@ -1,1 +1,1 @@
-module.exports = require('./src/zQuire.js')
+module.exports = require('./src/zquire.js')

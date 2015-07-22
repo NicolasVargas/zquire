@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 var npm = require('npm');
 var uuid = require('node-uuid');
 
-var zQuire = require('../src/zQuire.js');
+var zquire = require('../src/zquire.js');
 
 function uninstall(mod, opt, cb) {
   var modules = (typeof mod === 'string') ? [mod] : mod;
@@ -23,16 +23,16 @@ function uninstall(mod, opt, cb) {
   });
 }
 
-describe('Will test zQuire by using its callback system.', function() {
+describe('Will test zquire by using its callback system.', function() {
   describe(
-    'Will use zQuire basically : zQuire("path", callback);',
+    'Will use zquire basically : zquire("path", callback);',
     function() {
       var path;
 
-      it('Should require "path" with zQuire and not fail.',
+      it('Should require "path" with zquire and not fail.',
         function(
           done) {
-          zQuire('path', function(err, res) {
+          zquire('path', function(err, res) {
             expect(err).not.to.exist;
             path = res;
             done();
@@ -50,7 +50,7 @@ describe('Will test zQuire by using its callback system.', function() {
     });
 
   describe(
-    'Will require "underscore" which is not installed, install it and use it : zQuire("underscore", callback);',
+    'Will require "underscore" which is not installed, install it and use it : zquire("underscore", callback);',
     function() {
       var underscore;
 
@@ -58,9 +58,9 @@ describe('Will test zQuire by using its callback system.', function() {
         uninstall('underscore', null, done);
       });
 
-      it('Should require "underscore" with zQuire and not fail.',
+      it('Should require "underscore" with zquire and not fail.',
         function(done) {
-          zQuire('underscore', function(err, res) {
+          zquire('underscore', function(err, res) {
             expect(err).not.to.exist;
             underscore = res;
             done();
@@ -83,15 +83,15 @@ describe('Will test zQuire by using its callback system.', function() {
     });
 
   describe(
-    'Will use zQuire with wrong syntax and return an error : zQuire(254, callback);',
+    'Will use zquire with wrong syntax and return an error : zquire(254, callback);',
     function() {
       var mod;
       var zErr;
       it(
-        'Should use zQuire an return an error.',
+        'Should use zquire an return an error.',
         function(
           done) {
-          zQuire(254, function(err, res) {
+          zquire(254, function(err, res) {
             expect(err).to.exist;
             mod = res;
             zErr = err;
@@ -117,7 +117,7 @@ describe('Will test zQuire by using its callback system.', function() {
 
       it('Should require an unknown module and return an error.',
         function(done) {
-          zQuire(uuid.v1(), function(err, res) {
+          zquire(uuid.v1(), function(err, res) {
             expect(err).to.exist;
             zErr = err;
             mod = res;
@@ -136,7 +136,7 @@ describe('Will test zQuire by using its callback system.', function() {
 
 
   describe(
-    'Will require "async" which is not installed and install it with save flag : zQuire("async", {save: true}, callback);',
+    'Will require "async" which is not installed and install it with save flag : zquire("async", {save: true}, callback);',
     function() {
       var zErr;
       var dependencies;
@@ -148,7 +148,7 @@ describe('Will test zQuire by using its callback system.', function() {
       });
 
       before(function(done) {
-        zQuire('async', {
+        zquire('async', {
           save: true
         }, function(err) {
           zErr = err;
@@ -206,7 +206,7 @@ describe('Will test zQuire by using its callback system.', function() {
 
       it('Should require the modules and not fail.',
         function(done) {
-          zQuire(['accepts', 'path', 'fs', 'vary'], function(err,
+          zquire(['accepts', 'path', 'fs', 'vary'], function(err,
             accepts, path, fs, vary) {
             expect(err).not.to.exist;
             _accepts = accepts;
@@ -238,7 +238,7 @@ describe('Will test zQuire by using its callback system.', function() {
 
       it('Should require the modules and not fail.',
         function(done) {
-          zQuire(function(err, accepts, path, fs, vary) {
+          zquire(function(err, accepts, path, fs, vary) {
             expect(err).not.to.exist;
             _accepts = accepts;
             _path = path;
@@ -264,7 +264,7 @@ describe('Will test zQuire by using its callback system.', function() {
 
       it('Should require the modules and not fail.',
         function(done) {
-          zQuire(function(err, path, unknown_01_module_1258hazn) {
+          zquire(function(err, path, unknown_01_module_1258hazn) {
             expect(err).to.exist;
             _wrongOne = unknown_01_module_1258hazn;
             _path = path;
@@ -280,17 +280,17 @@ describe('Will test zQuire by using its callback system.', function() {
     });
 });
 
-describe('Will test zQuire by using its promises system.', function() {
+describe('Will test zquire by using its promises system.', function() {
 
   describe(
-    'Will use zQuire basically : require "path" node core module and use it : zQuire("path");',
+    'Will use zquire basically : require "path" node core module and use it : zquire("path");',
     function() {
       var path;
       var zErr;
 
-      it('Should require "path" with zQuire and not fail.',
+      it('Should require "path" with zquire and not fail.',
         function(done) {
-          zQuire('path')
+          zquire('path')
             .then(function(res) {
               path = res[0];
               done();
@@ -317,7 +317,7 @@ describe('Will test zQuire by using its promises system.', function() {
     });
 
   describe(
-    'Will require "underscore" which is not installed, install it and use it : zQuire("underscore");',
+    'Will require "underscore" which is not installed, install it and use it : zquire("underscore");',
     function() {
       var underscore;
       var zErr;
@@ -327,7 +327,7 @@ describe('Will test zQuire by using its promises system.', function() {
       });
 
       before(function(done) {
-        zQuire('underscore')
+        zquire('underscore')
           .then(function(res) {
             underscore = res[0];
             done();
@@ -365,7 +365,7 @@ describe('Will test zQuire by using its promises system.', function() {
 
       it('Should require an unknown module and fail.', function(
         done) {
-        zQuire(uuid.v1())
+        zquire(uuid.v1())
           .then(function(res) {
             mod = res;
             done();
@@ -388,7 +388,7 @@ describe('Will test zQuire by using its promises system.', function() {
 
 
   describe(
-    'Will require "array-flatten" which is not installed and install it with save flag : zQuire("array-flatten", { save: true });',
+    'Will require "array-flatten" which is not installed and install it with save flag : zquire("array-flatten", { save: true });',
     function() {
       var zErr;
       var dependencies;
@@ -400,7 +400,7 @@ describe('Will test zQuire by using its promises system.', function() {
       });
 
       before(function(done) {
-        zQuire('array-flatten', {
+        zquire('array-flatten', {
             save: true
           })
           .then(function() {
@@ -463,7 +463,7 @@ describe('Will test zQuire by using its promises system.', function() {
       });
       it('Should require the modules and not fail.',
         function(done) {
-          zQuire(['fresh', 'path', 'fs', 'parseurl'])
+          zquire(['fresh', 'path', 'fs', 'parseurl'])
             .then(function(res) {
               _fresh = res[0];
               _path = res[1];

@@ -1,7 +1,7 @@
 'use strict';
 require('es6-promise').polyfill();
 var npm = require('npm');
-var debug = require('debug')('zQuire');
+var debug = require('debug')('zquire');
 var introspect = require('introspect-fun');
 
 function installThem(modules, config) {
