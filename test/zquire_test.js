@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 var npm = require('npm');
 var uuid = require('node-uuid');
 
-var zquire = require('../src/zquire.js');
+var zquire = require('../lib/zquire.js');
 
 function uninstall(mod, opt, cb) {
   var modules = (typeof mod === 'string') ? [mod] : mod;
@@ -232,7 +232,7 @@ describe('Will test zquire by using its callback system.', function() {
 
     });
 
-  describe('Will require multiple modules wrapped into callback.',
+  describe('Will require multiple modules deduced with callback.',
     function() {
       var _accepts, _path, _fs, _vary;
 

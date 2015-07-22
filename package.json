@@ -17,7 +17,7 @@
     "npm": "^2.12.1"
   },
   "scripts": {
-    "lint": "eslint --ext .js ./src ./test",
+    "lint": "eslint --ext .js ./lib ./test",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- -u exports -R spec ./test/",
     "pretest": "npm run lint"
   },
